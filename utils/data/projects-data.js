@@ -1,49 +1,25 @@
-import ayla from '/public/image/ayla.jpg';
-import crefin from '/public/image/crefin.jpg';
-import realEstate from '/public/image/real-estate.jpg';
-import travel from '/public/image/travel.jpg';
+import portfolio from '/public/image/portfolio.gif';
+import screen from '/public/image/screen.png';
 
 export const projectsData = [
     {
         id: 1,
-        name: 'E-Commerce Application ',
-        description: "E-Commerce Platform: Developed a scalable MERN stack app with dynamic product catalog and advanced search. Used RESTful APIs for real-time updates.Payment & User Management: Integrated secure payment gateways and user authentication.Created an admin dashboard for product and order management.Performance & Scalability: Optimized with SSR, code splitting, and lazy loading. Deployed with Docker and Kubernetes, and used MongoDB Atlas for scalable data management.",
-        tools: ['Express', 'MongoDB', 'OpenAI API', 'AWS S3',  'EC2','NodeJS','ReactJS','HTML','CSS','TailwindCSS','Docker' ],
+        name: 'InvoiceHub — Multi-Tenant SaaS Invoice & Billing Platform',
+        description: "Built a full-stack invoice management application with isolated data scoping per user and role-based access control. Implemented a complete invoicing workflow with line items, taxes, discounts, automated PDF generation, email delivery, and Stripe payment integration with webhook-based status updates. Deployed with frontend on Vercel, backend on Railway, and database on MongoDB Atlas.",
+        tools: ['React', 'Vite', 'FastAPI', 'MongoDB', 'Stripe', 'JWT', 'Vercel', 'Railway'],
         role: 'Full Stack Developer',
         code: '',
-        demo: '',
-        image: crefin,
+        demo: 'https://invoice-hub-two.vercel.app',
+        image: portfolio,
     },
     {
         id: 2,
-        name: 'Data Visualisation on Heart Disease ',
-        description: 'Conducted exploratory data analysis to reveal patterns in cardiovascular health data.Implemented various visualisation techniques, including correlation heat maps and geospatial mapping.Enhanced understanding of risk factors and provided valuable insights for healthcare professionals.',
-        tools: ['Pandas', 'NumPy', "Matplotlib", "Sklearn", "Seaborn"],
-        role: 'Data Science',
-        code: '',
-        demo: '',
-        image: travel,
-    },
-    {
-        id: 3,
-        name: 'Face Detection and Manipulation with OpenCV',
-        description: 'Implemented face detection algorithms using OpenCV for real-time applications.Explored facial feature manipulation techniques for image processing.Gained practical experience in computer vision and image processing.',
-        tools: ['OpenCV', 'ML Algorithm'],
-        code: '',
+        name: 'Live Collaborative Whiteboard',
+        description: "Built a real-time multi-user whiteboard application where users can draw together simultaneously in shared rooms. Features include room-based sessions, freehand drawing, eraser, canvas clear, PNG export, and instant link sharing. Powered by FastAPI WebSockets for low-latency real-time sync across all connected clients.",
+        tools: ['React', 'FastAPI', 'WebSockets', 'Canvas API', 'Railway'],
         role: 'Full Stack Developer',
-        demo: '',
-        image: realEstate,
-    },
-    {
-        id: 4,
-        name: 'Human Activity Classifier',
-        description: "•	Preprocessed data and implemented feature engineering techniques.Developed and evaluated multiple machine learning models.Analyzed model performance and optimized hyperparameters.",
-        tools: ['Pandas', 'NumPy', "Matplotlib", "Sklearn", "Seaborn"],
         code: '',
-        demo: '',
-        image: ayla,
-        role: 'Data Science',
-    }
+        demo: 'https://live-collaborative-whiteboard-production.up.railway.app',
+        image: screen,
+    },
 ];
-
-

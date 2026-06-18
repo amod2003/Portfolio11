@@ -1,107 +1,114 @@
 "use client";
 // @flow strict
-import { isValidEmail } from '@/utils/check-email';
-import emailjs from '@emailjs/browser';
+
 import { useState } from 'react';
 import { TbMailForward } from "react-icons/tb";
 import { toast } from 'react-toastify';
-import "../../../css/globals.scss"
 
 function ContactForm() {
-  const [input, setInput] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [error, setError] = useState({
-    email: false,
-    required: false,
-  });
+  const [sending, setSending] = useState(false);
 
-  const checkRequired = () => {
-    if (input.email && input.message && input.name) {
-      setError({ ...error, required: false });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch('https://formspree.io/f/movarwwl', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        toast.success('Message sent successfully!');
+        form.reset();
+      } else {
+        toast.error('Something went wrong. Please try again.');
+      }
+    } catch {
+      toast.error('Failed to send. Please try again.');
+    } finally {
+      setSending(false);
     }
   };
 
-  const handleSendMail = async (e) => {
-    e.preventDefault();
-    if (!input.email || !input.message || !input.name) {
-      setError({ ...error, required: true });
-      return;
-    } else if (error.email) {
-      return;
-    } else {
-      setError({ ...error, required: false });
-    };
-
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const options = { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY };
-
-    try {
-      const res = await emailjs.send(serviceID, templateID, input, options);
-
-      if (res.status === 200) {
-        toast.success('Message sent successfully!');
-        setInput({
-          name: '',
-          email: '',
-          message: '',
-        });
-      };
-    } catch (error) {
-      toast.error(error?.text || error);
-    };
-  };
-
   return (
-    <div className="">
-      <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-        Contact with me
-      </p>
-      <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
-        <p className="text-sm text-[#d3d8e8]">
-          {"If you have any questions or concerns, please don't hesitate to contact me. I am open to any work opportunities that align with my skills and interests."}
-        </p>
-        <div className="container border border-gray-500 items-center  md:ml-[0rem]   ">
-        <div className="contact-form">
-          <form
-            action="https://formspree.io/f/movarwwl"
-            method="POST"
-            className="contact-inputs">
-            <input 
-              type="text "
-              name="username"
-              placeholder="username"
-              autoComplete="off"
-              
-              required
-            />
+    <div className="rounded-2xl border border-[#1b2c68a0] bg-gradient-to-b from-[#0d1224] to-[#0a0d37] p-6 lg:p-8">
+      {/* Top accent line */}
+      <div className="flex mb-6">
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
+        <div className="h-[2px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
+      </div>
 
-            <input
-              type="email"
-              name="Email"
-              placeholder="Email"
-              autoComplete="off"
-              required
-            />
+      <h3 className="text-lg font-semibold text-white mb-1">Send a Message</h3>
+      <p className="text-xs text-gray-500 mb-6">I&apos;ll get back to you within 24 hours.</p>
 
-            <textarea
-              name="message"
-              cols="30"
-              rows="6"
-              autoComplete="off"
-              required></textarea>
-
-            <input type="submit" value="send" className=" bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700 flex-1 text-sm py-3 text-white   " />
-          </form>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        {/* Name */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs font-medium uppercase tracking-wider text-gray-400">
+            Full Name
+          </label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Amod Kumar"
+            autoComplete="off"
+            required
+            className="w-full rounded-lg border border-[#2a2060] bg-[#0d1224] px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all duration-300 focus:border-pink-500 focus:ring-1 focus:ring-pink-500/30"
+          />
         </div>
-      </div>
-        
-      </div>
+
+        {/* Email */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs font-medium uppercase tracking-wider text-gray-400">
+            Email Address
+          </label>
+          <input
+            type="email"
+            name="Email"
+            placeholder="hello@example.com"
+            autoComplete="off"
+            required
+            className="w-full rounded-lg border border-[#2a2060] bg-[#0d1224] px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all duration-300 focus:border-pink-500 focus:ring-1 focus:ring-pink-500/30"
+          />
+        </div>
+
+        {/* Message */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs font-medium uppercase tracking-wider text-gray-400">
+            Message
+          </label>
+          <textarea
+            name="message"
+            rows={5}
+            placeholder="Tell me about your project or opportunity..."
+            autoComplete="off"
+            required
+            className="w-full resize-none rounded-lg border border-[#2a2060] bg-[#0d1224] px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all duration-300 focus:border-pink-500 focus:ring-1 focus:ring-pink-500/30"
+          />
+        </div>
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={sending}
+          className="mt-1 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 to-violet-600 px-6 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:from-violet-600 hover:to-pink-500 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {sending ? (
+            <span>Sending...</span>
+          ) : (
+            <>
+              <span>Send Message</span>
+              <TbMailForward size={18} />
+            </>
+          )}
+        </button>
+      </form>
     </div>
   );
-};
+}
 
 export default ContactForm;

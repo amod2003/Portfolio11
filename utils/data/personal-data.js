@@ -1,8 +1,8 @@
 export const personalData = {
   name: "AMOD KUMAR",
   profile: '/Amod.jpeg',
-  designation: "Software Developer",
-  description: "My name is Amod Kumar.Passionate full-stack web developer with a knack for Data Science. Dedicated to crafting efficient solutions with expertise in HTML, CSS, JavaScript, React, Node.js, SQL, ML Algorithms and more. Enthusiastic collaborator, lifelong learner, and open-source contributor. Let's build something amazing together.",
+  designation: "Software Engineer",
+  description: "Full Stack Developer with hands-on experience in backend engineering, REST API development, and cloud deployments. Proficient in FastAPI, React, PostgreSQL, and MongoDB with a strong track record of building production-grade systems including payment pipelines, recommendation engines, and multi-role APIs. Comfortable working across the entire stack with a focus on scalability, clean architecture, and real-world impact.",
 
   
   email: 'amodk9835@gmail.com',
@@ -15,5 +15,5 @@ export const personalData = {
   stackOverflow: 'https://stackoverflow.com/users/16840768/',
   leetcode: "https://leetcode.com/u/amod_chauhan/",
   devUsername: "",
-  resume: "https://drive.google.com/file/d/1O1uYX_WBMjKH7JLXImI_akjVa40pz1ho/view?usp=drivesdk"
+  resume: "/Amod_Kumar_SDE.pdf"
 }
