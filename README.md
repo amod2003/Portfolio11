@@ -1,142 +1,130 @@
-# Developer Portfolio
+# Amod Kumar — Portfolio
 
-### Are you struggling to create a professional portfolio website? Look no further! You can use the Developer Portfolio template and create your very own personalized portfolio today! My website is designed to be user-friendly and easily customizable, making it perfect for both developers and freelancers.
-
----
-
-# Demo :movie_camera:
-
-![](./public/image/screen.png)
-
-## View live preview [here](https://abusaid.netlify.app/).
+Personal portfolio website built with **Next.js 14** and **TailwindCSS**, showcasing my work as a Software Engineer. Features a hero section, experience timeline, projects, skills, education, and a contact form powered by Formspree.
 
 ---
 
-## Table of Contents :scroll:
+## Live Preview
 
-- [Sections](#sections-bookmark)
-- [Demo](#demo-movie_camera)
-- [Installation](#installation-arrow_down)
-- [Getting Started](#getting-started-dart)
-- [Usage](#usage-joystick)
-- [Packages Used](#packages-used-package)
+![Portfolio Preview](./public/image/screen.png)
 
 ---
 
-# Sections :bookmark:
+## About Me
 
-- HERO SECTION
-- ABOUT ME
-- EXPERIENCE
-- SKILLS
-- PROJECTS
-- EDUCATION
-- BLOG
-- CONTACTS
+I'm a **Software Engineer** currently building production-grade systems at **NuLook** (Beauty & Wellness Platform, Bengaluru). I specialize in backend engineering with FastAPI, PostgreSQL, and Redis — and work across the full stack with React and Next.js.
+
+**Core Stack:** FastAPI · React · PostgreSQL · MongoDB · Redis · Docker · AWS · JWT · Razorpay · Firebase
 
 ---
 
-# Installation :arrow_down:
+## Sections
 
-### You will need to download Git and Node to run this project
+- **Hero** — Introduction, tech stack code block, social links, resume download
+- **About** — Profile summary
+- **Experience** — NuLook (Full Stack Developer) · TechnoWard Technologies (SDE Intern)
+- **Skills** — Python, JavaScript, TypeScript, React, Next.js, FastAPI, PostgreSQL, MongoDB, Docker, AWS, and more
+- **Projects** — InvoiceHub (SaaS billing platform) · Live Collaborative Whiteboard
+- **Education** — BE Information Science, Visvesvaraya Technological University (2021–2025)
+- **Contact** — Contact form (Formspree) with email, phone, and social links
 
-- [Git](https://git-scm.com/downloads)
-- [Node](https://nodejs.org/en/download/)
+---
 
-#### Make sure you have the latest version of both Git and Node on your computer.
+## Projects Featured
 
-```
-node --version
-git --version
-```
+### InvoiceHub — Multi-Tenant SaaS Invoice & Billing Platform
+> React · Vite · FastAPI · MongoDB · Stripe · JWT · Vercel · Railway
 
-## <br />
+Multi-tenant invoice management app with role-based access, line items, taxes, discounts, PDF generation, email delivery, and Stripe payment integration with webhook-based status updates.
 
-# Getting Started :dart:
+**Live:** https://invoice-hub-two.vercel.app
 
-### Fork and Clone the repo
+---
 
-To Fork the repo click on the fork button at the top right of the page. Once the repo is forked open your terminal and perform the following commands
+### Live Collaborative Whiteboard
+> React · FastAPI · WebSockets · Canvas API · Railway
 
-```
-git clone https://github.com/<YOUR GITHUB USERNAME>/developer-portfolio.git
+Real-time multi-user whiteboard with room-based sessions, freehand drawing, eraser, canvas clear, PNG export, and instant link sharing. Powered by FastAPI WebSockets for low-latency sync.
 
+**Live:** https://live-collaborative-whiteboard-production.up.railway.app
+
+---
+
+## Tech Stack
+
+| Layer       | Technologies                                      |
+|-------------|---------------------------------------------------|
+| Frontend    | Next.js 14, React, TailwindCSS                    |
+| Styling     | TailwindCSS, SASS, react-icons                    |
+| Animations  | Lottie React, CSS animations                      |
+| Contact     | Formspree, React Toastify                         |
+| Deployment  | Vercel                                            |
+
+---
+
+## Getting Started
+
+**Prerequisites:** Node.js 18+ and Git
+
+```bash
+# Clone the repo
+git clone https://github.com/amod2003/developer-portfolio.git
 cd developer-portfolio
-```
 
-### Install packages from the root directory
-
-```bash
+# Install dependencies
 npm install
-# or
-yarn install
-```
 
-Then, run the development server:
-
-```bash
+# Run development server
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-# Usage :joystick:
+## Contact Form Setup
 
-Goto [emailjs.com](https://www.emailjs.com/) and create a new account for the mail sending. In free trial you will get 200 mail per month. After setup `emailjs` account, Please create a new `.env` file from `.env.example` file.
+The contact form uses [Formspree](https://formspree.io) — no configuration needed. To use your own endpoint, update the form action URL in:
 
-Eg:
-
-```env
-NEXT_PUBLIC_EMAILJS_SERVICE_ID =
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID =
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY =
+```
+app/components/homepage/contact/contact-form.jsx
 ```
 
-### Then, Customize data in the `utils/data` [folder](https://github.com/said7388/developer-portfolio/tree/main/utils/data).
-
-Eg:
-
-```javascript
-export const personalData = {
-  name: "ABU SAID",
-  profile: "/profile.png",
-  designation: "Full-Stack Software Developer",
-  description: "My name is ABU SAID....",
-  email: "abusaid7388@gmail.com",
-  phone: "+8801608797655",
-  address: "Dhaka, Bangladesh",
-  github: "https://github.com/said7388",
-  facebook: "https://www.facebook.com/abusaid.riyaz/",
-  linkedIn: "https://www.linkedin.com/in/abu-said-bd/",
-  twitter: "https://twitter.com/said7388",
-  stackOverflow: "https://stackoverflow.com/users/16840768/abu-said",
-  leetcode: "https://leetcode.com/said3812/",
-  devUsername: "said7388",
-  resume: "...",
-};
-```
-
-`devUsername` Used for fetching blog from `dev.to`.
+Replace `https://formspree.io/f/movarwwl` with your own Formspree endpoint.
 
 ---
 
----
+## Customization
 
-# Packages Used :package:
+All portfolio data lives in `utils/data/`:
 
-| Used Package List  |
-| :----------------: |
-|        next        |
-|  @emailjs/browser  |
-|    lottie-react    |
-| react-fast-marquee |
-|    react-icons     |
-|   react-toastify   |
-|        sass        |
-|    tailwindcss     |
+| File                  | Content                        |
+|-----------------------|--------------------------------|
+| `personal-data.js`    | Name, bio, links, resume URL   |
+| `experience.js`       | Work experience entries        |
+| `projects-data.js`    | Project cards                  |
+| `skills.js`           | Skills list                    |
+| `educations.js`       | Education entries              |
 
 ---
+
+## Packages Used
+
+| Package            | Purpose                        |
+|--------------------|--------------------------------|
+| `next`             | React framework                |
+| `tailwindcss`      | Utility-first CSS              |
+| `sass`             | SCSS support                   |
+| `react-icons`      | Icon library                   |
+| `lottie-react`     | Lottie animations              |
+| `react-fast-marquee` | Skills marquee               |
+| `react-toastify`   | Toast notifications            |
+
+---
+
+## Connect
+
+- **Email:** amodk9835@gmail.com
+- **LinkedIn:** [linkedin.com/in/amod-kumar-3bbb15254](https://www.linkedin.com/in/amod-kumar-3bbb15254)
+- **GitHub:** [github.com/amod2003](https://github.com/amod2003)
+- **LeetCode:** [leetcode.com/u/amod_chauhan](https://leetcode.com/u/amod_chauhan/)
